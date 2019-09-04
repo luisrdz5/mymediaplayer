@@ -1,0 +1,24 @@
+{
+  "name": "myvideo",
+  "version": "1.0.0",
+  "description": "Creacion del proyecto MyVideo en React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisrdz5/mymediaplayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisrdz5/mymediaplayer/issues"
+  },
+  "homepage": "https://github.com/luisrdz5/mymediaplayer#readme",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
