@@ -12,13 +12,13 @@
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid white;
     border-radius: 40px;
-    color: white;
-    padding: 60px 68px 40px;
-    min-height: 600px;
-    width: 300px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    color: white;    
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
+    justify-content: space-around;
+    padding: 60px 68px 40px;
+    width: 450px;
   }
   
   .login__container--form {

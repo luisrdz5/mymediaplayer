@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/luisrdz5/mymediaplayer#readme",
   "dependencies": {
+    "md5": "^2.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1"
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
