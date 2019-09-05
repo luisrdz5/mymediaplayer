@@ -3,19 +3,19 @@ import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play.png';
 import plusIcon from '../assets/static/plus.png';
 
-const CarouselItem = () => (
+const CarouselItem = ({ cover, title, year, contentRating, duration }) => (
   <div className='carousel-item'>
-    <img className='carousel-item__img' src='./images/adults-alcohol-alcoholic-beverage-1304473.jpg' alt='people' />
+    <img className='carousel-item__img' src={cover} alt={title} />
     <div className='carousel-item__details'>
       <div>
         <img className='carousel-item__details--img' src={ playIcon } alt='play' />
         <img className='carousel-item__details--img' src={ plusIcon } alt='plus' />
       </div>
       <p className='carousel-item__details--title'>
-            Título Descriptivo
+        {title}
       </p>
       <p className='carousel-item__details--subtitle'>
-            2019 16+ 114 minutos
+        {`${year} ${contentRating} ${duration}`}
       </p>
     </div>
   </div>
