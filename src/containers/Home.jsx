@@ -10,7 +10,7 @@ import '../assets/styles/App.scss';
 const Home = ({ mylist, originals, trends }) => {
   return  (
     <>
-      <Search />
+      <Search isHome />
       {mylist.length > 0  &&
           <Categories title='Mi Lista'>
             <Carousel>

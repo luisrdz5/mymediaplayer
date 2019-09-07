@@ -43,7 +43,9 @@
   }
   .header__menu--profile img {
       margin-right: 8px;
-      width: 40 px;
+      width: 40px;
+      border-radius: 100%;
+      object-fit: cover;
   }
   .header__menu--profile p {
       margin: 0px;

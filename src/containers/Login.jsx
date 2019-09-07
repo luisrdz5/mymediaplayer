@@ -57,7 +57,7 @@ const Login = (props) => {
             <img src={twitterIcon} alt='Google' />Inicia Sesión con Twitter
           </div>
         </section>
-        <p className='login__container--register'>No tienes ninguna cuenta
+        <p className='login__container--register'>No tienes ninguna cuenta {' '}
           <Link to='/register'>
                     Registrate
           </Link>

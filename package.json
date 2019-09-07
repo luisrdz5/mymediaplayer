@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/luisrdz5/mymediaplayer#readme",
   "dependencies": {
+    "classnames": "^2.2.6",
     "md5": "^2.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
