@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../assets/styles/components/Login.scss';
@@ -46,7 +47,7 @@ const Login = (props) => {
             <label>
               <input type='checkbox' name='' id='cbox1' value='checkbox' />
               {' '}
-              Recuérdame
+              Recordarme
             </label>
             <a href='/'>Olvide mi Contraseña</a>
           </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerRequest } from '../actions';
 import '../assets/styles/components/Register.scss';
-import { Link } from 'react-router-dom';
 
 const Register = (props) => {
   const [form, setValues] = useState({
@@ -47,7 +47,7 @@ const Register = (props) => {
             placeholder='Contraseña'
             onChange={handleInput}
           />
-          <button className='button'>Registrarme</button>
+          <button type='button' className='button'>Registrarme</button>
         </form>
         <p className='registro__container--register'>
           <Link to='/login'>
