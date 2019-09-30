@@ -10,13 +10,13 @@ const Login = (props) => {
   const [form, setValues] = useState({
     email: '',
   });
-  const handleInput = event => {
+  const handleInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     props.loginRequest(form);
     props.history.push('/');
@@ -41,23 +41,29 @@ const Login = (props) => {
             placeholder='Contraseña'
             onChange={handleInput}
           />
-          <button className='button'>Iniciar sesión</button>
+          <button type='button' className='button'>Iniciar sesión</button>
           <div className='login__container--remember-me'>
             <label>
-              <input type='checkbox' name='' id='cbox1' value='checkbox' /> Recuérdame
+              <input type='checkbox' name='' id='cbox1' value='checkbox' />
+              {' '}
+              Recuérdame
             </label>
             <a href='/'>Olvide mi Contraseña</a>
           </div>
         </form>
         <section className='login__container_social-media'>
           <div>
-            <img src={googleIcon} alt='Google' />Inicia Sesión con Google
+            <img src={googleIcon} alt='Google' />
+Inicia Sesión con Google
           </div>
           <div>
-            <img src={twitterIcon} alt='Google' />Inicia Sesión con Twitter
+            <img src={twitterIcon} alt='Google' />
+Inicia Sesión con Twitter
           </div>
         </section>
-        <p className='login__container--register'>No tienes ninguna cuenta {' '}
+        <p className='login__container--register'>
+No tienes ninguna cuenta
+          {' '}
           <Link to='/register'>
                     Registrate
           </Link>
@@ -65,7 +71,7 @@ const Login = (props) => {
       </section>
     </section>
   );
-}
+};
 
 const mapDispatchtoProps = {
   loginRequest,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { registerRequest } from '../actions'
+import { registerRequest } from '../actions';
 import '../assets/styles/components/Register.scss';
 import { Link } from 'react-router-dom';
 
@@ -10,13 +10,13 @@ const Register = (props) => {
     name: '',
     password: '',
   });
-  const handleInput = event => {
+  const handleInput = (event) => {
     setValues({
       ...form,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     props.registerRequest(form);
     props.history.push('/');
@@ -27,21 +27,21 @@ const Register = (props) => {
         <h2>Regístrate</h2>
         <form action='registro__container--form' onSubmit={handleSubmit}>
           <input
-            name= "name"
+            name='name'
             className='input'
             type='text'
             placeholder='Nombre'
             onChange={handleInput}
           />
           <input
-            name="email"
+            name='email'
             className='input'
             type='text'
             placeholder='Correo'
             onChange={handleInput}
           />
           <input
-            name="password"
+            name='password'
             className='input'
             type='password'
             placeholder='Contraseña'
