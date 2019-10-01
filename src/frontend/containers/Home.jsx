@@ -6,7 +6,6 @@ import Categories from '../components/Categories';
 import Carousel from '../components/carousel';
 import CarouselItem from '../components/carouselItem';
 //import useInitialState from '../Hooks/useInitialState'
-import '../assets/styles/App.scss';
 
 const Home = ({ mylist, originals, trends }) => {
   return (
