@@ -25,8 +25,9 @@ const main = (req, res, next) => {
         </StaticRouter>
       </Provider>,
     );
-    res.send(render(html));
-    
+    const preloadedState = store.getState();
+    res.send(render(html, preloadedState));
+
   } catch (err) {
     next(err);
   }
