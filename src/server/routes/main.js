@@ -13,7 +13,6 @@ import render from '../render/index';
 const main = (req, res, next) => {
   try {
     const store = createStore(reducer, initialState);
-    console.log(Routes);
     const html = renderToString(
       <Provider store={store}>
         <StaticRouter
