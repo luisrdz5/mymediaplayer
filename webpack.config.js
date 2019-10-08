@@ -3,8 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
-const dotenv = requiere('dotenv');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -106,5 +107,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/app.css',
     }),
+    isProd ? new CompressionPlugin({
+      test: /\.js$|\.css$/,
+      filename: '[path].gz',
+    }) : false,
   ],
 };
