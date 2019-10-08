@@ -78,3 +78,5 @@ dist/
 #archivo de cahe
 
 v8-compile-cache-0
+
+src/server/public
