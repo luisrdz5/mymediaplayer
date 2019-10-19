@@ -63,8 +63,6 @@ if (ENV === 'development') {
   app.disable('x-powered-by');
 }
 
-
-
 app.post('/auth/sign-in', async (req, res, next) => {
   passport.authenticate('basic', (error, data) => {
     try {

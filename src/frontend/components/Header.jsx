@@ -39,6 +39,9 @@ const Header = (props) => {
               <Link to='/login'>
               Iniciar Sesion
               </Link>
+              <Link to='/register'>
+              Registrarse
+              </Link>
             </li>
           )}
 
