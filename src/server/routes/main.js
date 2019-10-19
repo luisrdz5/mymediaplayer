@@ -2,13 +2,13 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { StaticRouter, Router } from 'react-router';
+import { StaticRouter } from 'react-router';
 import { renderRoutes } from 'react-router-config';
 import Routes from '../../frontend/routes/serverRoutes';
 import Layout from '../../frontend/components/Layout';
 import reducer from '../../frontend/reducers/index';
 import initialState from '../../frontend/initialState';
-import render from '../render';
+import render from '../render/index';
 
 const main = (req, res, next) => {
   try {
@@ -25,7 +25,9 @@ const main = (req, res, next) => {
         </StaticRouter>
       </Provider>,
     );
-    res.send(render(html));
+    const preloadedState = store.getState();
+    res.send(render(html, preloadedState));
+
   } catch (err) {
     next(err);
   }
