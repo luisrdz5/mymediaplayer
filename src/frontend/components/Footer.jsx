@@ -3,7 +3,6 @@ import '../assets/styles/components/Footer.scss';
 import classNames from 'classnames';
 
 const Footer = (props) => {
-  console.log(props);
   const { isLogin } = props;
   let headerClass;
   if (isLogin) {
@@ -11,7 +10,6 @@ const Footer = (props) => {
   } else {
     headerClass = classNames('footer');
   }
-  console.log(headerClass);
   return (
     <footer className={headerClass}>
       <a href='./'>Terminos de uso</a>

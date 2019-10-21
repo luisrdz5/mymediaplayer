@@ -20,7 +20,7 @@ const Header = (props) => {
       </Link>
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          {hasUser ?
+          { hasUser ?
             <img src={gravatar(user.email)} alt={user.email} /> :
             <img className='header__menu' src={userIcon} alt='User' />}
           <p> Perfil </p>
