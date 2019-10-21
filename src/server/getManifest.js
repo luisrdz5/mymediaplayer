@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+require('dotenv').config();
+
 const getManifest = () => {
   try {
     if (process.env.NODE_ENV !== 'development') {

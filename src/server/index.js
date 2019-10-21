@@ -10,9 +10,4 @@ require('asset-require-hook')({
   name: '/assets/[hash].[ext]',
 });
 
-require('asset-require-hook')({
-  extensions: ['jpg', 'png', 'gif'],
-  name: '/assets/[hash].[ext]',
-});
-
 require('./server.js');

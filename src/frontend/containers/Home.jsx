@@ -5,6 +5,7 @@ import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/carousel';
 import CarouselItem from '../components/carouselItem';
+import Footer from '../components/Footer';
 //import useInitialState from '../Hooks/useInitialState'
 
 const Home = ({ mylist, originals, trends }) => {
@@ -34,6 +35,7 @@ const Home = ({ mylist, originals, trends }) => {
           {originals.map((item) => <CarouselItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
+      <Footer />
     </>
   );
 };

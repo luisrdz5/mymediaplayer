@@ -16,4 +16,4 @@ const config = {
   linkedinClientSecret:process.env.LINKEDIN_CLIENT_SECRET
 };
 
-module.exports = { config }
+module.exports = { config };

@@ -19,8 +19,16 @@
     justify-content: space-around;
     padding: 60px 68px 40px;
     width: 450px;
+    text-align: center;
   }
-  
+  .login__container button {
+    width: 100%;
+  }
+  .login__container .input {
+    margin: 8px;
+    width: 100%;
+  }
+
   .login__container--form {
     display: flex;
     flex-direction: column;
@@ -33,17 +41,19 @@
   .login__container--remember-me {
     color: white;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   
-  .login__container--remember-me a {
+  .login__container--form a {
     color: white;
     font-size: 14px;
     text-decoration: none;
+    text-align: center;
   }
   
-  .login__container--remember-me a:hover {
+  .login__container--form a:hover {
     text-decoration: underline;
   }
   
@@ -51,6 +61,7 @@
     display: flex;
     align-items: center;
     font-size: 14px;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
   

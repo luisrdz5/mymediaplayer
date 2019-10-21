@@ -37,14 +37,10 @@ const Header = (props) => {
           ) : (
             <li>
               <Link to='/login'>
-              Iniciar Sesion
-              </Link>
-              <Link to='/register'>
-              Registrarse
+                Iniciar Sesion
               </Link>
             </li>
           )}
-
         </ul>
       </div>
     </header>
