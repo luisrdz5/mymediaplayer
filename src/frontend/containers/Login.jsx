@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../assets/styles/components/Login.scss';
 import { Link } from 'react-router-dom';
-import { loginRequest } from '../actions';
+import { loginUser } from '../actions';
 import googleIcon from '../assets/static/google.png';
 import twitterIcon from '../assets/static/icons8-twitter-16.png';
 import Footer from '../components/Footer';
@@ -20,7 +20,7 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
+    props.loginUser(form, '/');
     props.history.push('/');
   };
 
@@ -36,6 +36,7 @@ const Login = (props) => {
               type='text'
               placeholder='Correo'
               onChange={handleInput}
+              required
             />
             <input
               name='password'
@@ -43,8 +44,9 @@ const Login = (props) => {
               type='password'
               placeholder='Contraseña'
               onChange={handleInput}
+              required
             />
-            <button type='button' className='button'>Iniciar sesión</button>
+            <button type='submit' className='button'>Iniciar sesión</button>
             <div className='login__container--remember-me'>
               <input type='checkbox' name='' id='cbox1' value='checkbox' />
               <label>
@@ -79,7 +81,7 @@ const Login = (props) => {
 };
 
 const mapDispatchtoProps = {
-  loginRequest,
+  loginUser,
 };
 
 export default connect(null, mapDispatchtoProps)(Login);
