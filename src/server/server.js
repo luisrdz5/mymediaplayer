@@ -64,23 +64,21 @@ if (ENV === 'development') {
 }
 
 app.post('/auth/sign-in', async (req, res, next) => {
-  passport.authenticate('basic', (error, data) => {
+  passport.authenticate('basic', async (error, data) => {
     try {
       if (error || !data) {
         next(boom.unauthorized());
       }
-      console.log(`aqui viene la respuesta:  ${req}`);
       req.login(data, { session: false }, async (error) => {
         if (error) {
           next(error);
         }
         const { token, ...user } = data;
-
         res.cookie('token', token, {
-          httpOnly: !config.dev,
-          secure: !config.dev,
+          httpOnly: !(ENV === 'development'),
+          secure: !(ENV === 'development'),
         });
-        res.status(200).json(user);
+        res.status(200).json(user.user);
       });
     } catch (error) {
       next(error);
