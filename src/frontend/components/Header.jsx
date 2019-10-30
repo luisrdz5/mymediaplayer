@@ -9,7 +9,6 @@ import userIcon from '../assets/static/user-icon.png';
 
 const Header = (props) => {
   const { user } = props;
-  console.log(user.id);
   const hasUser = user.id;
   const handleLogout = () => {
     props.logoutRequest({});
