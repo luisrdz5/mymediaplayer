@@ -11,7 +11,11 @@ const Header = (props) => {
   const { user } = props;
   const hasUser = user.id;
   const handleLogout = () => {
+    document.cookie = 'email=';
+    document.cookie = 'name=';
+    document.cookie = 'id=';
     props.logoutRequest({});
+    window.location.href = '/login';
   };
   return (
     <header className='header'>
