@@ -45,7 +45,6 @@ const main = (req, res, next) => {
     );
     const preloadedState = store.getState();
     res.send(render(html, preloadedState));
-
   } catch (err) {
     next(err);
   }
