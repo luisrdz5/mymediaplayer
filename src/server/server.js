@@ -106,6 +106,8 @@ app.post('/user-movies', async (req, res, next) => {
   try {
     const { body: userMovie } = req;
     const { token } = req.cookies;
+    console.log('entrando a user-movies')
+    console.log(userMovie);
 
     const { data, status } = await axios({
       url: `${config.apiUrl}/api/user-movies`,

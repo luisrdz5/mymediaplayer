@@ -62,3 +62,14 @@ export const loginUser = ({ email, password }, redirectUrl) => {
       .catch((err) => dispatch(setError(err)));
   };
 };
+export const putFavorite = (payload, user) => {
+  const userId = user;
+  return (dispatch) => {
+    axios.post('/user-movies', [{ ...payload, userId }])
+      .then(({ data }) => dispatch(setFavorite(data)))
+      .then(() => {
+        window.location.href = redirectUrl;
+      })
+      .catch((err) => dispatch(setError(err)));
+  };
+};
