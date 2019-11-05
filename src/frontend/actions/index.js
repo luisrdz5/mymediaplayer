@@ -62,3 +62,12 @@ export const loginUser = ({ email, password }, redirectUrl) => {
       .catch((err) => dispatch(setError(err)));
   };
 };
+export const addFavorite = (payload) => {
+  return (dispatch) => {
+    axios.post('/user-movies', payload)
+      .then(() => {
+        dispatch(setFavorite(payload));
+      })
+      .catch((err) => dispatch(setError(err)));
+  };
+};

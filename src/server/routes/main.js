@@ -32,7 +32,7 @@ const main = async (req, res, next) => {
         method: 'get',
       });
       let userMovies = await axios({
-        url: `${process.env.API_URL}/api/movies?userId=${id}`,
+        url: `${process.env.API_URL}/api/user-movies?userId=${id}`,
         headers: { Authorization: `Bearer ${token}` },
         method: 'get',
       });
