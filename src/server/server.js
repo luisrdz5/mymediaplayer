@@ -16,6 +16,10 @@ const { config } = require('./config/index');
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 
+// Agregamos las variables de timpo en segundos
+const THIRTY_DAYS_IN_SEC = 2592000;
+const TWO_HOURS_IN_SEC = 7200;
+
 const app = express();
 // body parser
 app.use(express.json());
@@ -64,6 +68,7 @@ if (ENV === 'development') {
 }
 
 app.post('/auth/sign-in', async (req, res, next) => {
+  const { rememberMe } = req.body;
   passport.authenticate('basic', async (error, data) => {
     try {
       if (error || !data) {
@@ -77,6 +82,7 @@ app.post('/auth/sign-in', async (req, res, next) => {
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
           secure: !(ENV === 'development'),
+          maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
         });
         res.status(200).json(user.user);
       });

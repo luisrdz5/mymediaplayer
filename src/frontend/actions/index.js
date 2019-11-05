@@ -40,7 +40,7 @@ export const registerUser = (payload, redirectUrl) => {
       .catch((err) => dispatch(setError(err)));
   };
 };
-export const loginUser = ({ email, password }, redirectUrl) => {
+export const loginUser = ({ email, password, rememberMe }, redirectUrl) => {
   return (dispatch) => {
     axios({
       url: '/auth/sign-in',
@@ -48,6 +48,7 @@ export const loginUser = ({ email, password }, redirectUrl) => {
       auth: {
         username: email,
         password,
+        rememberMe,
       },
     })
       .then(({ data }) => {
