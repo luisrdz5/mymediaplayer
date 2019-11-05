@@ -32,11 +32,12 @@ const main = async (req, res, next) => {
         method: 'get',
       });
       let userMovies = await axios({
-        url: `${process.env.API_URL}/api/user-movies?userId=${id}`,
+        url: `${process.env.API_URL}/api/user-movies/${id}`,
         headers: { Authorization: `Bearer ${token}` },
         method: 'get',
       });
-
+      console.log(`Aqui va el userMovies: ${userMovies.data.data}`);
+      console.log(`Aqui va el userMovies: ${movieList.data.data}`);
       movieList = movieList.data.data;
       userMovies = userMovies.data.data;
 
