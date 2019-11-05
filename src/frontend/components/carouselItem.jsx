@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addFavorite, deleteFavorite } from '../actions';
+
+
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play.png';
 import plusIcon from '../assets/static/plus.png';
@@ -10,6 +12,7 @@ import removeIcon from '../assets/static/remove-icon.png';
 
 const CarouselItem = (props) => {
   const { id, cover, title, year, contentRating, duration, isList } = props;
+  const { user } = props;
   const handleSetFavorite = () => {
     props.addFavorite({
       'movieId': id, 'userId': props.userId,
@@ -75,4 +78,5 @@ const mapDispatchToProps = {
   addFavorite,
   deleteFavorite,
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem);
