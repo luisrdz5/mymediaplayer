@@ -38,18 +38,18 @@ const main = async (req, res, next) => {
       });
       movieList = movieList.data.data;
       userMovies = userMovies.data.data;
-
+      let arrayUser;
+      const dataUser = userMovies.map((info) => {
+        arrayUser = movieList.filter((movie) => movie.id === info.movieId)
+        return (arrayUser[0]);
+      });
       initialState = {
         user,
         playing: {},
-        myList: userMovies.filter(info => {
-          console.log(info.movieId);
-          console.log(movieList.filter(movie => movie.id === info.movieId));
-          return (movieList.filter(movie => movie.id === info.movieId));
-        }),
+        myList: dataUser,
         //myList: movieList.filter(movie => movie.contentRating === 'PG' && movie.id),
-        trends: movieList.filter(movie => movie.contentRating === 'PG' && movie.id),
-        originals: movieList.filter(movie => movie.contentRating === 'G' && movie.id),
+        trends: movieList.filter((movie) => movie.contentRating === 'PG' && movie.id),
+        originals: movieList.filter((movie) => movie.contentRating === 'G' && movie.id),
       };
 
     } catch (err) {
