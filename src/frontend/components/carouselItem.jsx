@@ -17,8 +17,10 @@ const CarouselItem = (props) => {
     });
   };
   const handleDeleteFavorite = (itemId) => {
-    console.log(itemId);
-    props.delFavorite(itemId);
+    props.delFavorite({
+      'movieId': itemId,
+      'userId': props.userId,
+    });
   };
   return (
     <div className='carousel-item'>

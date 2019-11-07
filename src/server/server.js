@@ -132,12 +132,15 @@ app.post('/user-movies', async (req, res, next) => {
 
 app.delete('/user-movies/:userMovieId', async (req, res, next) => {
   try {
+    console.log(`Aqui va el body (userId) ${req.body}`);
     const { userMovieId } = req.params;
+    const { userId } = req.body;
     const { token } = req.cookies;
     console.log(`${config.apiUrl}/api/user-movies/${userMovieId}`);
     const { data, status } = await axios({
       url: `${config.apiUrl}/api/user-movies/${userMovieId}`,
       headers: { Authorization: `Bearer ${token}` },
+      data: userId,
       method: 'delete',
     });
     if (status !== 200) {
