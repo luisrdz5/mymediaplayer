@@ -17,8 +17,8 @@ const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 
 // Agregamos las variables de timpo en segundos
-const THIRTY_DAYS_IN_SEC = 2592000;
-const TWO_HOURS_IN_SEC = 7200;
+const THIRTY_DAYS_IN_SEC = 2592000000;
+const TWO_HOURS_IN_SEC = 7200000;
 
 const app = express();
 // body parser
@@ -79,6 +79,7 @@ app.post('/auth/sign-in', async (req, res, next) => {
           next(error);
         }
         const { token, ...user } = data;
+        
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
           secure: !(ENV === 'development'),

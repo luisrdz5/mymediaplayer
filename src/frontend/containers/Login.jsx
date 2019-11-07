@@ -47,7 +47,7 @@ const Login = (props) => {
             />
             <button type='submit' className='button'>Iniciar sesión</button>
             <div className='login__container--remember-me'>
-              <input type='checkbox' name='rememberMe' id='cbox1' value='checkbox' />
+              <input type='checkbox' name='rememberMe' id='cbox1' value='checkbox' onChange={handleInput} />
               <label>
                 {' '}
                 Recordarme

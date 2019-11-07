@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { addFavorite, deleteFavorite } from '../actions';
+import { addFavorite, delFavorite } from '../actions';
 
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play.png';
@@ -17,7 +17,8 @@ const CarouselItem = (props) => {
     });
   };
   const handleDeleteFavorite = (itemId) => {
-    props.deleteFavorite(itemId);
+    console.log(itemId);
+    props.delFavorite(itemId);
   };
   return (
     <div className='carousel-item'>
@@ -74,7 +75,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   addFavorite,
-  deleteFavorite,
+  delFavorite,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem);

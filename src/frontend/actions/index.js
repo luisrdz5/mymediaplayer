@@ -41,6 +41,7 @@ export const registerUser = (payload, redirectUrl) => {
   };
 };
 export const loginUser = ({ email, password, rememberMe }, redirectUrl) => {
+  console.log(`Aqui va remember me ${rememberMe} en actions`);
   return (dispatch) => {
     axios({
       url: '/auth/sign-in',
@@ -48,6 +49,8 @@ export const loginUser = ({ email, password, rememberMe }, redirectUrl) => {
       auth: {
         username: email,
         password,
+      },
+      data: {
         rememberMe,
       },
     })
@@ -68,6 +71,15 @@ export const addFavorite = (payload) => {
     axios.post('/user-movies', payload)
       .then(() => {
         dispatch(setFavorite(payload));
+      })
+      .catch((err) => dispatch(setError(err)));
+  };
+};
+export const delFavorite = (payload) => {
+  return (dispatch) => {
+    axios.delete('/user-movies', payload)
+      .then(() => {
+        dispatch(deleteFavorite(payload));
       })
       .catch((err) => dispatch(setError(err)));
   };
