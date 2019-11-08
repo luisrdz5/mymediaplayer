@@ -14,6 +14,13 @@ const CarouselItem = (props) => {
   const handleSetFavorite = () => {
     props.addFavorite({
       'movieId': id, 'userId': props.userId,
+    }, {
+      id,
+      cover,
+      title,
+      year,
+      contentRating,
+      duration,
     });
   };
   const handleDeleteFavorite = (itemId) => {

@@ -65,11 +65,11 @@ export const loginUser = ({ email, password, rememberMe }, redirectUrl) => {
       .catch((err) => dispatch(setError(err)));
   };
 };
-export const addFavorite = (payload) => {
+export const addFavorite = (payload, movieData) => {
   return (dispatch) => {
     axios.post('/user-movies', payload)
       .then(() => {
-        dispatch(setFavorite(payload));
+        dispatch(setFavorite(movieData));
       })
       .catch((err) => dispatch(setError(err)));
   };
@@ -77,7 +77,6 @@ export const addFavorite = (payload) => {
 export const delFavorite = (payload) => {
   const { movieId, userId } = payload;
   return (dispatch) => {
-    console.log(payload);
     axios({
       url: `/user-movies/${movieId}`,
       data: {
@@ -86,7 +85,7 @@ export const delFavorite = (payload) => {
       method: 'delete',
     })
       .then(() => {
-        dispatch(deleteFavorite(payload));
+        dispatch(deleteFavorite(movieId));
       })
       .catch((err) => dispatch(setError(err)));
   };
