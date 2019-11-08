@@ -12,16 +12,33 @@ import removeIcon from '../assets/static/remove-icon.png';
 const CarouselItem = (props) => {
   const { id, cover, title, year, contentRating, duration, isList } = props;
   const handleSetFavorite = () => {
-    props.addFavorite({
-      'movieId': id, 'userId': props.userId,
-    }, {
-      id,
-      cover,
-      title,
-      year,
-      contentRating,
-      duration,
-    });
+    if (props.movies) {
+      const searchMovies = props.movies.filter((movie) => movie.id === id);
+      console.log(searchMovies.length);
+      if (searchMovies.length === 0) {
+        props.addFavorite({
+          'movieId': id, 'userId': props.userId,
+        }, {
+          id,
+          cover,
+          title,
+          year,
+          contentRating,
+          duration,
+        });
+      }
+    } else {
+      props.addFavorite({
+        'movieId': id, 'userId': props.userId,
+      }, {
+        id,
+        cover,
+        title,
+        year,
+        contentRating,
+        duration,
+      });
+    }
   };
   const handleDeleteFavorite = (itemId) => {
     props.delFavorite({
@@ -79,6 +96,7 @@ CarouselItem.propTypes = {
 const mapStateToProps = (state) => {
   return {
     userId: state.user.id,
+    movies: state.myList,
   };
 };
 
