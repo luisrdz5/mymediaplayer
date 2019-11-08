@@ -80,7 +80,9 @@ export const delFavorite = (payload) => {
     console.log(payload);
     axios({
       url: `/user-movies/${movieId}`,
-      data: userId,
+      data: {
+        userId,
+      },
       method: 'delete',
     })
       .then(() => {
