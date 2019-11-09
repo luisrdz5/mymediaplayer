@@ -9,6 +9,7 @@ require("@babel/polyfill");
 passport.use(
   new BasicStrategy(async function(email, password, cb) {
     try {
+      console.log(`${config.apiUrl}/api/auth/sign-in`);
       const { data, status } = await axios({
         url: `${config.apiUrl}/api/auth/sign-in`,
         method: 'post',

@@ -83,6 +83,7 @@ app.post('/auth/sign-in', async (req, res, next) => {
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
           secure: !(ENV === 'development'),
+          domain: 'myvideo.luisrodriguezgarcia.com',
           maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
         });
         res.status(200).json(user.user);

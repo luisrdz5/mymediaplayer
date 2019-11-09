@@ -14,7 +14,6 @@ const CarouselItem = (props) => {
   const handleSetFavorite = () => {
     if (props.movies) {
       const searchMovies = props.movies.filter((movie) => movie.id === id);
-      console.log(searchMovies.length);
       if (searchMovies.length === 0) {
         props.addFavorite({
           'movieId': id, 'userId': props.userId,
