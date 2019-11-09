@@ -237,6 +237,7 @@ app.get(
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
+      domain: 'myvideo.luisrodriguezgarcia.com',
     });
 
     res.status(200).json(user);
