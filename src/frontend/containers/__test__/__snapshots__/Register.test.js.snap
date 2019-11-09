@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component Match Snapshot 1`] = `
+Array [
+  <section
+    className="registro"
+  >
+    <section
+      className="registro__container"
+    >
+      <h2>
+        Regístrate
+      </h2>
+      <form
+        action="registro__container--form"
+        onSubmit={[Function]}
+      >
+        <input
+          className="input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Nombre"
+          required={true}
+          type="text"
+        />
+        <input
+          className="input"
+          name="email"
+          onChange={[Function]}
+          placeholder="Correo"
+          required={true}
+          type="text"
+        />
+        <input
+          className="input"
+          name="password"
+          onChange={[Function]}
+          placeholder="Contraseña"
+          required={true}
+          type="password"
+        />
+        <button
+          className="button"
+          type="submit"
+        >
+          Registrarme
+        </button>
+      </form>
+      <p
+        className="registro__container--register"
+      >
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Iniciar Sesión
+        </a>
+      </p>
+    </section>
+  </section>,
+  <footer
+    className="footer blue"
+  >
+    <a
+      href="./"
+    >
+      Terminos de uso
+    </a>
+    <a
+      href="./"
+    >
+      Declaración de Privacidad
+    </a>
+    <a
+      href="./"
+    >
+      Centro de Ayuda
+    </a>
+  </footer>,
+]
+`;
