@@ -174,6 +174,8 @@ app.get(
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
+      domain: 'myvideo.luisrodriguezgarcia.com',
+      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
     res.status(200).json(user);
   },
@@ -199,6 +201,8 @@ app.get(
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
+      domain: 'myvideo.luisrodriguezgarcia.com',
+      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
 
     res.status(200).json(user);
@@ -218,6 +222,8 @@ app.get(
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
+      domain: 'myvideo.luisrodriguezgarcia.com',
+      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
     res.status(200).json(user);
   },
@@ -239,6 +245,7 @@ app.get(
       httpOnly: !config.dev,
       secure: !config.dev,
       domain: 'myvideo.luisrodriguezgarcia.com',
+      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
 
     res.status(200).json(user);
@@ -260,6 +267,8 @@ app.get(
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
+      domain: 'myvideo.luisrodriguezgarcia.com',
+      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
 
     res.status(200).json(user);
