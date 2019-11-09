@@ -1,5 +1,10 @@
-export default {
-  user: {},
+const initialState =  {
+  user: {
+    id: '"5db86fa64a87650317ce1ea4',
+    name: 'luis',
+    email:'luis@bueno.com',
+    password:'$2b$10$6sdhD8hssYJ31keXSWzBpePHk5KSwJQeiyCcLL7SmESz4wL0wLnZK'
+  },
   playing: {},
   mylist: [],
   trends: [
@@ -163,3 +168,5 @@ export default {
     },
   ],
 };
+
+export default initialState
