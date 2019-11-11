@@ -263,7 +263,7 @@ app.get(
     }
 
     const { token, ...user } = req.user;
-
+    res.clearCookie('token');
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
