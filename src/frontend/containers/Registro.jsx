@@ -55,7 +55,7 @@ const Register = (props) => {
           </form>
           <p className='registro__container--register'>
             <Link to='/login'>
-                      Iniciar Sesión
+              Iniciar Sesión
             </Link>
           </p>
         </section>

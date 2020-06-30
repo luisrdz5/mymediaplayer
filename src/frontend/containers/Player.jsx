@@ -18,7 +18,7 @@ const Player = (props) => {
       </video>
       <div className='Player-back'>
         <button type='button' onClick={() => props.history.goBack()}>
-              Regresar
+          Regresar
         </button>
       </div>
     </div>

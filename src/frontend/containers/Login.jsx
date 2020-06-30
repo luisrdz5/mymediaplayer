@@ -58,18 +58,18 @@ const Login = (props) => {
           <section className='login__container_social-media'>
             <div>
               <img src={googleIcon} alt='Google' />
-  Inicia Sesión con Google
+              Inicia Sesión con Google
             </div>
             <div>
               <img src={twitterIcon} alt='Google' />
-  Inicia Sesión con Twitter
+              Inicia Sesión con Twitter
             </div>
           </section>
           <p className='login__container--register'>
-  No tienes ninguna cuenta
+            No tienes ninguna cuenta
             {' '}
             <Link to='/register'>
-                      Registrate
+              Registrate
             </Link>
           </p>
         </section>
