@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import gravatar from '../utils/gravatar';
-import { logoutRequest } from '../actions';
+import { logoutUser } from '../actions';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo-platzi-video-BW2.png';
 import userIcon from '../assets/static/user-icon.png';
@@ -11,11 +11,7 @@ const Header = (props) => {
   const { user } = props;
   const hasUser = user.id;
   const handleLogout = () => {
-    document.cookie = 'email=';
-    document.cookie = 'name=';
-    document.cookie = 'id=';
-    document.cookie = 'token=';
-    props.logoutRequest({});
+    props.logoutUser({});
     window.location.href = '/login';
   };
   return (
@@ -58,7 +54,7 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = {
-  logoutRequest,
+  logoutUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

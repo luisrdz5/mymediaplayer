@@ -4,12 +4,11 @@ const boom = require('@hapi/boom');
 const axios = require('axios');
 const { config } = require('../../../config/index');
 
-require("@babel/polyfill");
+require('@babel/polyfill');
 
 passport.use(
-  new BasicStrategy(async function(email, password, cb) {
+  new BasicStrategy((async (email, password, cb) => {
     try {
-      console.log(`${config.apiUrl}/api/auth/sign-in`);
       const { data, status } = await axios({
         url: `${config.apiUrl}/api/auth/sign-in`,
         method: 'post',
@@ -29,5 +28,5 @@ passport.use(
     } catch (error) {
       cb(error);
     }
-  }),
+  })),
 );

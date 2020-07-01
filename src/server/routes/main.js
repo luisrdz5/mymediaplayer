@@ -17,7 +17,8 @@ const main = async (req, res, next) => {
   try {
     let initialState;
     try {
-      const { token, email, name, id } = req.cookies;
+      const { email, name, id } = req.cookies;
+      let { token } = req.cookies;
       let user = {};
       if (email || name || id) {
         user = {
@@ -25,6 +26,9 @@ const main = async (req, res, next) => {
           email,
           name,
         };
+      }
+      if (!token) {
+        token = process.env.API_KEY_TOKEN;
       }
       let movieList = await axios({
         url: `${process.env.API_URL}/api/movies`,
@@ -40,7 +44,7 @@ const main = async (req, res, next) => {
       userMovies = userMovies.data.data;
       let arrayUser;
       const dataUser = userMovies.map((info) => {
-        arrayUser = movieList.filter((movie) => movie.id === info.movieId)
+        arrayUser = movieList.filter((movie) => movie.id === info.movieId);
         return (arrayUser[0]);
       });
       initialState = {
@@ -60,7 +64,7 @@ const main = async (req, res, next) => {
         trends: {},
         originals: {},
       };
-      console.log(err);
+      console.log(err.message);
     }
     const isLogged = (initialState.user.id);
     const store = createStore(reducer, initialState);

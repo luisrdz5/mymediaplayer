@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../assets/styles/components/Login.scss';
 import { Link } from 'react-router-dom';
-import { loginUser } from '../actions';
+import { loginUser, loginUserTwitter, loginUserGoogle } from '../actions';
 import googleIcon from '../assets/static/google.png';
 import twitterIcon from '../assets/static/icons8-twitter-16.png';
 import Footer from '../components/Footer';
@@ -22,7 +22,14 @@ const Login = (props) => {
     event.preventDefault();
     props.loginUser(form, '/');
   };
-
+  const handleGoogle = (event) => {
+    event.preventDefault();
+    props.loginUserGoogle('/');
+  };
+  const handleTwitter = (event) => {
+    event.preventDefault();
+    props.loginUserTwitter('/');
+  };
   return (
     <>
       <section className='login'>
@@ -57,12 +64,16 @@ const Login = (props) => {
           </form>
           <section className='login__container_social-media'>
             <div>
-              <img src={googleIcon} alt='Google' />
-              Inicia Sesión con Google
+              <img src={googleIcon} alt='Google' onClick={handleGoogle} />
+              <p onClick={handleGoogle}>
+                Inicia Sesión con Google
+              </p>
             </div>
             <div>
-              <img src={twitterIcon} alt='Google' />
-              Inicia Sesión con Twitter
+              <img src={twitterIcon} alt='Google' onClick={handleTwitter} />
+              <p onClick={handleTwitter}>
+                Inicia Sesión con Twitter
+              </p>
             </div>
           </section>
           <p className='login__container--register'>
@@ -81,6 +92,8 @@ const Login = (props) => {
 
 const mapDispatchtoProps = {
   loginUser,
+  loginUserTwitter,
+  loginUserGoogle,
 };
 
 export default connect(null, mapDispatchtoProps)(Login);

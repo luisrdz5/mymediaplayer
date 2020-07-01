@@ -54,10 +54,16 @@ export const loginUser = ({ email, password, rememberMe }, redirectUrl) => {
       },
     })
       .then(({ data }) => {
+        document.cookie = `token=${data.token}`;
         document.cookie = `email=${data.email}`;
         document.cookie = `name=${data.name}`;
         document.cookie = `id=${data.id}`;
-        dispatch(loginRequest(data));
+        const user = {
+          email: data.email,
+          name: data.name,
+          id: data.id,
+        };
+        dispatch(loginRequest(user));
       })
       .then(() => {
         window.location.href = redirectUrl;
@@ -89,4 +95,19 @@ export const delFavorite = (payload) => {
       })
       .catch((err) => dispatch(setError(err)));
   };
+};
+export const logoutUser = (payload) => {
+  return (dispatch) => {
+    document.cookie = 'email=';
+    document.cookie = 'name=';
+    document.cookie = 'id=';
+    document.cookie = 'token=';
+    dispatch(logoutRequest(payload));
+  };
+};
+export const loginUserTwitter = (redirectUrl) => {
+  window.location.href = '/auth/twitter';
+};
+export const loginUserGoogle = (redirectUrl) => {
+  window.location.href = '/auth/google';
 };

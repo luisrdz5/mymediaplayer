@@ -61,7 +61,6 @@ if (ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
-  console.log(`Loading ${ENV} config`);
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable('x-powered-by');
@@ -79,14 +78,19 @@ app.post('/auth/sign-in', async (req, res, next) => {
           next(error);
         }
         const { token, ...user } = data;
-        
+        /*
         res.cookie('token', token, {
-          httpOnly: !(ENV === 'development'),
-          secure: !(ENV === 'development'),
-          domain: 'myvideo.luisrodriguezgarcia.com',
-          maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
+          httpOnly: !config.dev,
+          secure: !config.dev,
         });
-        res.status(200).json(user.user);
+        */
+        const tokenUser = {
+          email: user.user.email,
+          name: user.user.name,
+          id: user.user.id,
+          token,
+        };
+        res.status(200).json(tokenUser);
       });
     } catch (error) {
       next(error);
@@ -166,7 +170,6 @@ app.get(
   '/auth/google-oauth/callback',
   passport.authenticate('google-oauth', { session: false }),
   (req, res, next) => {
-    console.log(`aqui viene la respuesta:  ${req}`);
     if (!req.user) {
       next(boom.unauthorized());
     }
@@ -197,15 +200,24 @@ app.get(
     }
 
     const { token, ...user } = req.user;
+    res.cookie('email', user.user.email, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('id', user.user.id, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('name', user.user.name, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
 
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
-      domain: 'myvideo.luisrodriguezgarcia.com',
-      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
-
-    res.status(200).json(user);
+    res.redirect('/');
   },
 );
 
@@ -219,13 +231,24 @@ app.get(
       next(boom.unauthorized());
     }
     const { token, ...user } = req.user;
+    res.cookie('email', user.user.email, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('id', user.user.id, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('name', user.user.name, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
-      domain: 'myvideo.luisrodriguezgarcia.com',
-      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
-    res.status(200).json(user);
+    res.redirect('/');
   },
 );
 
@@ -240,15 +263,25 @@ app.get(
     }
 
     const { token, ...user } = req.user;
+    res.cookie('email', user.user.email, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('id', user.user.id, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('name', user.user.name, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
 
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
-      domain: 'myvideo.luisrodriguezgarcia.com',
-      maxAge: rememberMe ? THIRTY_DAYS_IN_SEC : TWO_HOURS_IN_SEC,
     });
+    res.redirect('/');
 
-    res.status(200).json(user);
   },
 );
 
