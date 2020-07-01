@@ -1,0 +1,25 @@
+language: nodejs
+cache:
+    directories:
+        - node_modules
+        - ~/.npm       
+node_js:
+    - '12'
+git:
+    depth: 3
+notifications:
+    email:
+        recipients:
+            - luis_rdz5@hotmail.com
+            - luis@luisrodriguezgarcia.com
+        on_success: always
+        on_failure: always
+deploy:
+    provide: heroku
+    skip-cleanup: true
+    keep-history: true
+    api_key: $HEROKU_TOKEN
+    run: "npm run start"
+    app: myvideo-frontend
+    on:
+        repo: luisrdz5/mymediaplayer
